@@ -1,7 +1,26 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="box">
-  <h1>BA Planner</h1>
+<div class="container" id="mainContainer">
+  <div class="row py-2 rounded-top" id="topContainer">
+    <div class="col my-auto"><span class="text-dark">Student List</span></div>
+    <div class="col text-end" id="filtersContainer">
+      <a href="#" class="btn btn-light active" data-bs-toggle="button" aria-pressed="true">All</a>
+      <a href="#" class="btn btn-light" data-bs-toggle="button">STRIKER</a>
+      <a href="#" class="btn btn-light" data-bs-toggle="button">SPECIAL</a>
+      <a href="#" class="btn btn-light" data-bs-toggle="button">Filters</a>
+      <a href="#" class="btn btn-light" data-bs-toggle="button">Sort</a>
+    </div>
+  </div>
+  <div class="row px-3 rounded-bottom" id="bottomContainer">
+    <div class="container my-3 g-0 text-center rounded" id="charsContainer">
+      {% for n in range(33): %}
+      <div class="col d-inline-block border" id="charBoxContainer">
+        <div class="" id="charImg"><img src="static/icons/portraits/ichika.webp"/></div>
+        <div class="" id="nameContainer"><p class="my-auto">Ichika</p></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 
 {% endblock %}
