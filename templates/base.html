@@ -12,27 +12,29 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+      <nav class="navbar navbar-expand-md navbar-light fixed-top border border-2 bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand ms-2" href="#">BA Planner</a>
+          <span class="navbar-brand ms-2 fw-bold" href="#">BA Planner</span>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ms-auto mb-md-0">
-              <li class="nav-item"><a class="nav-link" href="#">Resource Planner</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Changelog</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Credits</a></li>
+              <li class="nav-item"><a class="nav-link fw-bold active" href="#">Resource Planner</a></li>
+              <li class="nav-item"><a class="nav-link fw-bold" href="#">Changelog</a></li>
+              <li class="nav-item"><a class="nav-link fw-bold" href="#">Credits</a></li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
     {% block content %} {% endblock %}
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container text-center">
-        <span>Under construction uwu</span>
-      </div>
+    <footer class="footer mx-auto py-2 fixed-bottom border border-2 rounded-top bg-light">
+      <ul class="nav justify-content-center">
+        <li class="nav-item"><a class="nav-link fw-bold text-secondary" href="#">Resources</a></li>
+        <li class="nav-item"><a class="nav-link fw-bold text-secondary" href="#">Gears</a></li>
+        <li class="nav-item"><a class="nav-link fw-bold text-secondary" href="#">Transfer</a></li>
+      </ul>
     </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>

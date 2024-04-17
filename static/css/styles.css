@@ -1,7 +1,5 @@
 footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    width: 80%;
 }
 body {
     background-color: #B4E5F6;
@@ -10,16 +8,53 @@ body {
     margin-top: 70px;
     margin-bottom: 70px;
 }
+
+/* For filters */
+
 #topContainer {
     background-color: #8ABDD5;
 }
+.studentList{
+    height: 40px;
+    width: 150px;
+}
+#allCharacters.btn.active {
+    background-color: #153756;
+    color: white;
+}
+#strikerCharacters.btn {
+    color: red;
+}
+#strikerCharacters.btn.active {
+    background-color: red;
+    color: white;
+}
+#specialCharacters.btn {
+    color: blue;
+}
+#specialCharacters.btn.active {
+    background-color: blue;
+    color: white;
+}
+
+
 #bottomContainer {
     background-color: #62A2C0;
 }
 #charsContainer {
-    background-color: white;
+    background: repeating-linear-gradient(
+      0deg,
+      #DEE7E8,
+      white 1px,
+      white 25px,
+      white 1px
+    );
+}
+#charBoxContainer {
+    cursor: pointer;
 }
 #charImg {
+    background-color: white;
     height: 150px;
     width: 180px;
 }
@@ -27,9 +62,19 @@ body {
     height: 100%;
     width: 100%;
 }
-#nameContainer {
+#sortContainer {
     width: 180px;
-    background-color: rgba(0, 9, 56, 0.6);
-    opacity: 0.9;
+    background-color: #1D3855;
     color: white;
+}
+#addContainer {
+    height: 175px;
+    width: 180px;
+    background: repeating-linear-gradient(
+      45deg,
+      #9AC8CD,
+      white 1px,
+      white 10px,
+      white 10px
+    );
 }

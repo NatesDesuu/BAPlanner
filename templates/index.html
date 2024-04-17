@@ -2,23 +2,27 @@
 
 <div class="container" id="mainContainer">
   <div class="row py-2 rounded-top" id="topContainer">
-    <div class="col my-auto"><span class="text-dark">Student List</span></div>
+    <div class="col my-auto"><img class="studentList" src="static/icons/ui/student_list.png"/></div>
     <div class="col text-end" id="filtersContainer">
-      <a href="#" class="btn btn-light active" data-bs-toggle="button" aria-pressed="true">All</a>
-      <a href="#" class="btn btn-light" data-bs-toggle="button">STRIKER</a>
-      <a href="#" class="btn btn-light" data-bs-toggle="button">SPECIAL</a>
-      <a href="#" class="btn btn-light" data-bs-toggle="button">Filters</a>
-      <a href="#" class="btn btn-light" data-bs-toggle="button">Sort</a>
+      <a href="#" class="btn btn-light active fw-bold" id="allCharacters" data-bs-toggle="button" aria-current="true">All</a>
+      <a href="#" class="btn btn-light fw-bold" id="strikerCharacters" data-bs-toggle="button">STRIKER</a>
+      <a href="#" class="btn btn-light fw-bold" id="specialCharacters" data-bs-toggle="button">SPECIAL</a>
+      <a href="#" class="btn btn-light fw-bold" data-bs-toggle="button">Lv.</a>
+      <a href="#" class="btn btn-light fw-bold" data-bs-toggle="button">☰↓</a>
     </div>
   </div>
   <div class="row px-3 rounded-bottom" id="bottomContainer">
-    <div class="container my-3 g-0 text-center rounded" id="charsContainer">
+    <div class="container my-3 text-center rounded" id="charsContainer">
       {% for n in range(33): %}
-      <div class="col d-inline-block border" id="charBoxContainer">
-        <div class="" id="charImg"><img src="static/icons/portraits/ichika.webp"/></div>
-        <div class="" id="nameContainer"><p class="my-auto">Ichika</p></div>
+      <div class="col d-inline-block my-3" id="charBoxContainer">
+        <div class="border rounded-top" id="charImg"><img src="static/icons/portraits/ichika.webp"/></div>
+        <div class="rounded-bottom" id="sortContainer"><p class="my-auto fw-bold">Lv. 87</p></div>
+        <div id="nameContainer"><p class="my-auto fw-bold">Ichika</p></div>
       </div>
       {% endfor %}
+      <div class="col d-inline-block my-3 align-top border border-2 rounded" id="addContainer">
+        <h3 class="mt-5">Add<br>Student</h3>
+      </div>
     </div>
   </div>
 </div>
