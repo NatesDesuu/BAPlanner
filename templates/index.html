@@ -1,30 +1,103 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container" id="mainContainer">
+
+  <!-- Filters -->
   <div class="row py-2 rounded-top" id="topContainer">
-    <div class="col my-auto"><img class="studentList" src="static/icons/ui/student_list.png"/></div>
+    <div class="col my-auto"><img class="studentList" src="static/assets/img/ui/student-list.png"/></div>
     <div class="col text-end" id="filtersContainer">
-      <a href="#" class="btn btn-light active fw-bold" id="allCharacters" data-bs-toggle="button" aria-current="true">All</a>
-      <a href="#" class="btn btn-light fw-bold" id="strikerCharacters" data-bs-toggle="button">STRIKER</a>
-      <a href="#" class="btn btn-light fw-bold" id="specialCharacters" data-bs-toggle="button">SPECIAL</a>
+      <a href="#" class="btn btn-light active fw-bold" id="allStudents" data-bs-toggle="button" aria-current="true">All</a>
+      <a href="#" class="btn btn-light fw-bold" id="strikerStudents" data-bs-toggle="button">STRIKER</a>
+      <a href="#" class="btn btn-light fw-bold" id="specialStudents" data-bs-toggle="button">SPECIAL</a>
       <a href="#" class="btn btn-light fw-bold" data-bs-toggle="button">Lv.</a>
       <a href="#" class="btn btn-light fw-bold" data-bs-toggle="button">☰↓</a>
     </div>
   </div>
+
+  <!-- Students -->
   <div class="row px-3 rounded-bottom" id="bottomContainer">
-    <div class="container my-3 text-center rounded" id="charsContainer">
-      {% for n in range(33): %}
-      <div class="col d-inline-block my-3" id="charBoxContainer">
-        <div class="border rounded-top" id="charImg"><img src="static/icons/portraits/ichika.webp"/></div>
+    <div class="container my-3 rounded text-center" id="studentsContainer">
+      {% for n in range(35): %}
+      <div class="col d-inline-block my-3" id="studentBoxContainer" data-bs-toggle="modal" data-bs-target="#studentInfoModal">
+        <div class="border rounded-top" id="studentImg"><img src="static/assets/img/chars/icons/ichika.webp"/></div>
         <div class="rounded-bottom" id="sortContainer"><p class="my-auto fw-bold">Lv. 87</p></div>
         <div id="nameContainer"><p class="my-auto fw-bold">Ichika</p></div>
       </div>
       {% endfor %}
-      <div class="col d-inline-block my-3 align-top border border-2 rounded" id="addContainer">
-        <h3 class="mt-5">Add<br>Student</h3>
+      <div class="col btn d-inline-block my-3 align-top border rounded" id="addContainer">
+        <img class="mt-2" src="static/assets/img/ui/student-add.png"/>
+        <h5 class="fw-bold">Add</h5>
       </div>
     </div>
   </div>
+
+  <!-- Student Info Modal -->
+  <div class="modal fade" id="studentInfoModal" tabindex="-1" aria-labelledby="studentInfoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+      <div class="modal-content position-relative px-3 h-100">
+
+        <!-- Modal Background Img -->
+        <div class="modal-body my-3 rounded-top" style="background-image: url('static/assets/img/ui/bg/trinity.jpg')">
+
+          <!-- Student Portrait -->
+          <div class="position-absolute" id="studentModalImg">
+            <img src="static/assets/img/chars/portraits/ichika.png"/>
+          </div>
+
+          <!-- Student Info Table -->
+          <div class="ms-auto position-relative" id="studentInfoModalTable">
+
+            <!-- Row 1 -->
+            <div class="row mx-1 py-1 bg-light rounded-top text-center">
+              <div class="col">
+                <img class="studentType" src="static/assets/img/ui/role/dealer.webp"/>
+                <span class="align-middle fw-bold">Dealer</span></div>
+              <div class="col">
+                <img class="studentType" src="static/assets/img/ui/atk-type.webp"/>
+                <span class="px-3 py-1 my-1 align-middle rounded fw-bold" style="background-color: #9745A7; color: white;">Sonic</span>
+              </div>
+              <div class="col-auto"><img class="studentTerrain" src="static/assets/img/ui/terrain/city.webp"/></div>
+              <div class="col-auto"><img class="studentTerrain" src="static/assets/img/ui/terrain/desert.webp"/></div>
+              <div class="col-auto"><img class="studentTerrain" src="static/assets/img/ui/terrain/indoor.webp"/></div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="row mx-1 py-1 bg-light text-center">
+              <div class="col"><span class="px-3 py-1 my-1 align-middle rounded fw-bold" style="background-color: #2B4663; color: white;">MIDDLE</span></div>
+              <div class="col">
+                <img class="studentType" src="static/assets/img/ui/def-type.webp"/>
+                <span class="px-3 py-1 my-1 align-middle rounded fw-bold" style="background-color: #BE8905; color: white;">Heavy</span>
+              </div>
+              <div class="col-auto"><img class="studentMood" src="static/assets/img/ui/mood/outstanding.webp"/></div>
+              <div class="col-auto"><img class="studentMood" src="static/assets/img/ui/mood/neutral.webp"/></div>
+              <div class="col-auto"><img class="studentMood" src="static/assets/img/ui/mood/terrible.webp"/></div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="row mx-1 py-1 bg-light text-center">
+              <div class="col"><span class="px-3 py-1 my-1 align-middle rounded fw-bold" style="background-color: #2B4663; color: white;">MIDDLE</span></div>
+              <div class="col">
+                <img class="studentType" src="static/assets/img/ui/def-type.webp"/>
+                <span class="px-3 py-1 my-1 align-middle rounded fw-bold" style="background-color: #BE8905; color: white;">Heavy</span>
+              </div>
+              <div class="col-auto"><img class="studentMood" src="static/assets/img/ui/mood/outstanding.webp"/></div>
+              <div class="col-auto"><img class="studentMood" src="static/assets/img/ui/mood/neutral.webp"/></div>
+              <div class="col-auto"><img class="studentMood" src="static/assets/img/ui/mood/terrible.webp"/></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Info Table -->
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-primary fw-bold">Save</button>
+          <button type="button" class="btn btn-danger fw-bold">Delete</button>
+          <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </div>
 
 {% endblock %}

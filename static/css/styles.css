@@ -1,3 +1,5 @@
+/* For base */
+
 footer {
     width: 80%;
 }
@@ -18,30 +20,31 @@ body {
     height: 40px;
     width: 150px;
 }
-#allCharacters.btn.active {
+#allStudents.btn.active {
     background-color: #153756;
     color: white;
 }
-#strikerCharacters.btn {
+#strikerStudents.btn {
     color: red;
 }
-#strikerCharacters.btn.active {
+#strikerStudents.btn.active {
     background-color: red;
     color: white;
 }
-#specialCharacters.btn {
+#specialStudents.btn {
     color: blue;
 }
-#specialCharacters.btn.active {
+#specialStudents.btn.active {
     background-color: blue;
     color: white;
 }
 
+/* For students */
 
 #bottomContainer {
     background-color: #62A2C0;
 }
-#charsContainer {
+#studentsContainer {
     background: repeating-linear-gradient(
       0deg,
       #DEE7E8,
@@ -50,15 +53,15 @@ body {
       white 1px
     );
 }
-#charBoxContainer {
+#studentBoxContainer {
     cursor: pointer;
 }
-#charImg {
+#studentImg {
     background-color: white;
     height: 150px;
     width: 180px;
 }
-#charImg img {
+#studentImg img {
     height: 100%;
     width: 100%;
 }
@@ -77,4 +80,22 @@ body {
       white 10px,
       white 10px
     );
+}
+#addContainer img {
+    height: 105px;
+    width: 110px;
+}
+
+/* For student info */
+
+#studentInfoModalTable {
+    width: 430px;
+}
+.studentTerrain, .studentMood {
+    width: 30px;
+    height: 30px;
+}
+.studentType {
+    width: 20px;
+    height: 20px;
 }
