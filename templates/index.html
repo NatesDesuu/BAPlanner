@@ -34,60 +34,103 @@
   <!-- Student Info Modal -->
   <div class="modal fade" id="studentInfoModal" tabindex="-1" aria-labelledby="studentInfoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-xl">
-      <div class="modal-content position-relative px-3 h-100">
+      <div class="modal-content px-3">
 
-        <!-- Modal Background Img -->
-        <div class="modal-body my-3 rounded-top" style="background-image: url('static/assets/img/ui/bg/trinity.jpg')">
+        <!-- Modal Container + Background Img -->
+        <div class="container-fluid modal-body my-3 rounded" style="background-image: url('static/assets/img/ui/bg/trinity.jpg'); background-size: cover;">
+          <div class="row">
 
-          <!-- Student Portrait -->
-          <div class="position-absolute" id="studentModalImg">
-            <img src="static/assets/img/chars/portraits/ichika.png"/>
-          </div>
-
-          <!-- Student Info Table -->
-          <div class="ms-auto position-relative" id="studentInfoModalTable">
-
-            <!-- Row 1 -->
-            <div class="row mx-1 py-1 bg-light rounded-top text-center">
-              <div class="col">
-                <img class="studentType" src="static/assets/img/ui/role/dealer.webp"/>
-                <span class="align-middle fw-bold">Dealer</span></div>
-              <div class="col">
-                <img class="studentType" src="static/assets/img/ui/atk-type.webp"/>
-                <span class="px-3 py-1 my-1 align-middle rounded fw-bold" style="background-color: #9745A7; color: white;">Sonic</span>
-              </div>
-              <div class="col-auto"><img class="studentTerrain" src="static/assets/img/ui/terrain/city.webp"/></div>
-              <div class="col-auto"><img class="studentTerrain" src="static/assets/img/ui/terrain/desert.webp"/></div>
-              <div class="col-auto"><img class="studentTerrain" src="static/assets/img/ui/terrain/indoor.webp"/></div>
+            <!-- Student Portrait -->
+            <div class="col-6 text-center" id="studentModalImg">
+              <img src="static/assets/img/chars/portraits/ichika.png"/>
             </div>
 
-            <!-- Row 2 -->
-            <div class="row mx-1 py-1 bg-light text-center">
-              <div class="col"><span class="px-3 py-1 my-1 align-middle rounded fw-bold" style="background-color: #2B4663; color: white;">MIDDLE</span></div>
-              <div class="col">
-                <img class="studentType" src="static/assets/img/ui/def-type.webp"/>
-                <span class="px-3 py-1 my-1 align-middle rounded fw-bold" style="background-color: #BE8905; color: white;">Heavy</span>
+            <!-- Student Info Table -->
+            <div class="col-6 justify-content-center" id="studentInfoModalTable">
+
+              <!-- Row 1 - General -->
+              <div class="row mx-1 py-1 bg-light border-bottom-0 rounded text-center fw-bold align-items-center">
+                <div class="col border-end">
+                  <img class="studentType" src="static/assets/img/ui/role/dealer.webp"/>
+                  <span class="align-middle">Dealer</span><br>
+                  <span class="px-3 align-middle rounded" style="background-color: #2B4663; color: white;">MIDDLE</span>
+                </div>
+                <div class="col border-end">
+                  <img class="studentType" src="static/assets/img/ui/atk-type.webp"/>
+                  <span class="px-3 align-middle rounded" style="background-color: #9745A7; color: white;">Sonic</span><br>
+                  <img class="studentType" src="static/assets/img/ui/def-type.webp"/>
+                  <span class="px-3 align-middle rounded" style="background-color: #BE8905; color: white;">Heavy</span>
+                </div>
+                <div class="col-auto border-end">
+                  <img class="studentTerrain" src="static/assets/img/ui/terrain/city.webp"/><br>
+                  <img class="studentMood" src="static/assets/img/ui/mood/outstanding.webp"/>
+                </div>
               </div>
-              <div class="col-auto"><img class="studentMood" src="static/assets/img/ui/mood/outstanding.webp"/></div>
-              <div class="col-auto"><img class="studentMood" src="static/assets/img/ui/mood/neutral.webp"/></div>
-              <div class="col-auto"><img class="studentMood" src="static/assets/img/ui/mood/terrible.webp"/></div>
+
+              <!-- Row 2 - Types -->
+              <div class="row mx-1 mt-3 py-1 bg-light border-bottom-0 rounded text-center fw-bold align-items-center">
+                <div class="col border-end">
+                  <img class="studentType" src="static/assets/img/ui/role/dealer.webp"/>
+                  <span class="align-middle">Dealer</span><br>
+                  <span class="px-3 align-middle rounded" style="background-color: #2B4663; color: white;">MIDDLE</span>
+                </div>
+                <div class="col border-end">
+                  <img class="studentType" src="static/assets/img/ui/atk-type.webp"/>
+                  <span class="px-3 align-middle rounded" style="background-color: #9745A7; color: white;">Sonic</span><br>
+                  <img class="studentType" src="static/assets/img/ui/def-type.webp"/>
+                  <span class="px-3 align-middle rounded" style="background-color: #BE8905; color: white;">Heavy</span>
+                </div>
+                <div class="col-auto border-end">
+                  <img class="studentTerrain" src="static/assets/img/ui/terrain/city.webp"/><br>
+                  <img class="studentMood" src="static/assets/img/ui/mood/outstanding.webp"/>
+                </div>
+                <div class="col-auto border-end">
+                  <img class="studentTerrain" src="static/assets/img/ui/terrain/desert.webp"/><br>
+                  <img class="studentMood" src="static/assets/img/ui/mood/neutral.webp"/>
+                </div>
+                <div class="col-auto">
+                  <img class="studentTerrain" src="static/assets/img/ui/terrain/indoor.webp"/><br>
+                  <img class="studentMood" src="static/assets/img/ui/mood/terrible.webp"/>
+                </div>
+              </div>
+
+              <!-- Row 1 - Skills -->
+              <div class="row mx-1 mt-3 py-2 bg-light rounded text-center fw-bold">
+                <div class="col-auto">
+                  <br>Current<br><br><br>Target
+                </div>
+                <div class="col border-end fst-italic">
+                  EX Skill<br>
+                  <input id="ex_current" type="number" min="1" max="5"><br>
+                  <img class="my-1 studentSkill" src="static/assets/img/chars/skills/ichika-ex.webp" style="background-color: #9745A7;"/><br>
+                  <input id="ex_target" type="number" min="1" max="5">
+                </div>
+                <div class="col border-end fst-italic">
+                  Basic Skill<br>
+                  <input id="basic_current" type="number" min="1" max="10"><br>
+                  <img class="my-1 studentSkill" src="static/assets/img/chars/skills/ichika-basic.webp" style="background-color: #9745A7;"/><br>
+                  <input id="basic_target" type="number" min="1" max="10">
+                </div>
+                <div class="col border-end fst-italic">
+                  <span style="font-size: 12px;">Enhanced Skill</span><br>
+                  <input id="enhanced_current" type="number" min="1" max="10"><br>
+                  <img class="my-1 studentSkill" src="static/assets/img/chars/skills/ichika-enhanced.webp" style="background-color: #9745A7;"/><br>
+                  <input id="enhanced_target" type="number" min="1" max="10">
+                </div>
+                <div class="col fst-italic">
+                  Sub Skill<br>
+                  <input id="sub_current" type="number" min="1" max="10"><br>
+                  <img class="my-1 studentSkill" src="static/assets/img/chars/skills/ichika-sub.webp" style="background-color: #9745A7;"/><br>
+                  <input id="sub_target" type="number" min="1" max="10">
+                </div>
+              </div>
+
             </div>
 
-            <!-- Row 3 -->
-            <div class="row mx-1 py-1 bg-light text-center">
-              <div class="col"><span class="px-3 py-1 my-1 align-middle rounded fw-bold" style="background-color: #2B4663; color: white;">MIDDLE</span></div>
-              <div class="col">
-                <img class="studentType" src="static/assets/img/ui/def-type.webp"/>
-                <span class="px-3 py-1 my-1 align-middle rounded fw-bold" style="background-color: #BE8905; color: white;">Heavy</span>
-              </div>
-              <div class="col-auto"><img class="studentMood" src="static/assets/img/ui/mood/outstanding.webp"/></div>
-              <div class="col-auto"><img class="studentMood" src="static/assets/img/ui/mood/neutral.webp"/></div>
-              <div class="col-auto"><img class="studentMood" src="static/assets/img/ui/mood/terrible.webp"/></div>
-            </div>
           </div>
         </div>
 
-        <!-- Student Info Table -->
+        <!-- Modal Footer -->
         <div class="modal-footer justify-content-center">
           <button type="button" class="btn btn-primary fw-bold">Save</button>
           <button type="button" class="btn btn-danger fw-bold">Delete</button>

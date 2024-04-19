@@ -88,8 +88,10 @@ body {
 
 /* For student info */
 
-#studentInfoModalTable {
-    width: 430px;
+#studentModalImg img {
+    height: 500px;
+    object-fit: cover;
+    object-position: 25% 25%;
 }
 .studentTerrain, .studentMood {
     width: 30px;
@@ -98,4 +100,8 @@ body {
 .studentType {
     width: 20px;
     height: 20px;
+}
+.studentSkill {
+    width: 30px;
+    height: 30px;
 }
