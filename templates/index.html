@@ -41,37 +41,47 @@
           <div class="row">
 
             <!-- Student Portrait -->
-            <div class="col-6 text-center" id="studentModalImg">
+            <div class="col-5 text-center" id="studentModalImg">
               <img src="static/assets/img/chars/portraits/ichika.png"/>
             </div>
 
             <!-- Student Info Table -->
-            <div class="col-6 justify-content-center" id="studentInfoModalTable">
+            <div class="col-7 justify-content-center" id="studentInfoModalTable">
 
               <!-- Row 1 - General -->
-              <div class="row mx-1 py-1 bg-light border-bottom-0 rounded text-center fw-bold align-items-center">
+              <div class="row mx-1 py-1 rounded text-center text-light fw-bold justify-content-center align-items-center" id="studentInfoRow1">
                 <div class="col border-end">
-                  <img class="studentType" src="static/assets/img/ui/role/dealer.webp"/>
-                  <span class="align-middle">Dealer</span><br>
-                  <span class="px-3 align-middle rounded" style="background-color: #2B4663; color: white;">MIDDLE</span>
+                  <span class="align-middle text-light fs-3">Ichika</span><br>
                 </div>
-                <div class="col border-end">
-                  <img class="studentType" src="static/assets/img/ui/atk-type.webp"/>
-                  <span class="px-3 align-middle rounded" style="background-color: #9745A7; color: white;">Sonic</span><br>
-                  <img class="studentType" src="static/assets/img/ui/def-type.webp"/>
-                  <span class="px-3 align-middle rounded" style="background-color: #BE8905; color: white;">Heavy</span>
+                <div class="col-auto">
+                  <img class="mb-1" id="studentEXP" src="static/assets/img/ui/exp.png"/> Level
                 </div>
                 <div class="col-auto border-end">
-                  <img class="studentTerrain" src="static/assets/img/ui/terrain/city.webp"/><br>
-                  <img class="studentMood" src="static/assets/img/ui/mood/outstanding.webp"/>
+                  Current
+                  <input id="bond_current" type="number" min="1" max="10"><br>
+                  Target
+                  <input id="bond_target" type="number" min="1" max="10">
+                </div>
+                <div class="col-auto">
+                  <img class="mb-1" id="studentBond" src="static/assets/img/ui/bond.png"/> Bond
+                </div>
+                <div class="col-auto border-end">
+                  Current
+                  <input id="bond_current" type="number" min="1" max="10"><br>
+                  Target
+                  <input id="bond_target" type="number" min="1" max="10">
                 </div>
               </div>
 
               <!-- Row 2 - Types -->
-              <div class="row mx-1 mt-3 py-1 bg-light border-bottom-0 rounded text-center fw-bold align-items-center">
+              <div class="row mx-1 mt-3 py-1 rounded text-center fw-bold justify-content-center align-items-center" id="studentInfoRow2">
                 <div class="col border-end">
-                  <img class="studentType" src="static/assets/img/ui/role/dealer.webp"/>
-                  <span class="align-middle">Dealer</span><br>
+                  <span class="px-2 bg-light rounded text-danger align-middle">STRIKER<br></span>
+                </div>
+                <div class="col border-end">
+                  <span class="px-2 bg-light rounded align-middle">
+                    <img class="studentType mb-1" src="static/assets/img/ui/role/dealer.webp"/> Dealer<br>
+                  </span>
                   <span class="px-3 align-middle rounded" style="background-color: #2B4663; color: white;">MIDDLE</span>
                 </div>
                 <div class="col border-end">
@@ -94,34 +104,70 @@
                 </div>
               </div>
 
-              <!-- Row 1 - Skills -->
-              <div class="row mx-1 mt-3 py-2 bg-light rounded text-center fw-bold">
-                <div class="col-auto">
+              <!-- Row 3 - Skills -->
+              <div class="row mx-1 mt-3 py-2 rounded text-center text-light justify-content-center fw-bold" id="studentInfoRow1">
+                <div class="col">
                   <br>Current<br><br><br>Target
                 </div>
-                <div class="col border-end fst-italic">
+                <div class="col mx-1 pb-1 border rounded fst-italic">
                   EX Skill<br>
                   <input id="ex_current" type="number" min="1" max="5"><br>
                   <img class="my-1 studentSkill" src="static/assets/img/chars/skills/ichika-ex.webp" style="background-color: #9745A7;"/><br>
                   <input id="ex_target" type="number" min="1" max="5">
                 </div>
-                <div class="col border-end fst-italic">
-                  Basic Skill<br>
+                <div class="col mx-1 pb-1 border rounded fst-italic">
+                  <span style="font-size: 15px;">Basic Skill</span><br>
                   <input id="basic_current" type="number" min="1" max="10"><br>
                   <img class="my-1 studentSkill" src="static/assets/img/chars/skills/ichika-basic.webp" style="background-color: #9745A7;"/><br>
                   <input id="basic_target" type="number" min="1" max="10">
                 </div>
-                <div class="col border-end fst-italic">
-                  <span style="font-size: 12px;">Enhanced Skill</span><br>
+                <div class="col mx-1 pb-1 border rounded fst-italic">
+                  <span style="font-size: 11px;">Enhanced Skill</span><br>
                   <input id="enhanced_current" type="number" min="1" max="10"><br>
                   <img class="my-1 studentSkill" src="static/assets/img/chars/skills/ichika-enhanced.webp" style="background-color: #9745A7;"/><br>
                   <input id="enhanced_target" type="number" min="1" max="10">
                 </div>
-                <div class="col fst-italic">
+                <div class="col mx-1 pb-1 border rounded fst-italic">
                   Sub Skill<br>
                   <input id="sub_current" type="number" min="1" max="10"><br>
                   <img class="my-1 studentSkill" src="static/assets/img/chars/skills/ichika-sub.webp" style="background-color: #9745A7;"/><br>
                   <input id="sub_target" type="number" min="1" max="10">
+                </div>
+              </div>
+
+              <!-- Row 4 - Rarity -->
+              <div class="row mx-1 mt-3 py-1 rounded text-light fw-bold justify-content-center align-items-center" id="studentInfoRow2">
+                <div class="col-auto border-end">
+                  <span class="p-2 bg-light rounded text-dark align-middle">
+                    <img class="studentType mb-1" src="static/assets/img/ui/gun/ar.webp"/> AR
+                  </span>
+                </div>
+                <div class="col ms-2 border-end">
+                  Current
+                  <div class="d-flex">
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                  </div>
+                  Target
+                  <div class="d-flex">
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/><br>
+                  </div>
+                </div>
+                <div class="col-auto px-5 text-center">
+                  <img id="studentUE" src="static/assets/img/chars/ue/ichika.png"/><br>Red Dragon
                 </div>
               </div>
 

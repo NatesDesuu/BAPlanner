@@ -88,6 +88,23 @@ body {
 
 /* For student info */
 
+input {
+    width: 48px;
+}
+#studentEXP {
+    width: 40px;
+    height: 20px;
+}
+#studentBond {
+    width: 20px;
+    height: 20px;
+}
+#studentInfoRow1 {
+    background-color: rgba(18, 61, 112, 0.5);
+}
+#studentInfoRow2 {
+    background-color: rgba(110, 111, 112, 0.5);
+}
 #studentModalImg img {
     height: 500px;
     object-fit: cover;
@@ -104,4 +121,12 @@ body {
 .studentSkill {
     width: 30px;
     height: 30px;
+}
+.studentRarity {
+    width: 20px;
+    height: 20px;
+}
+#studentUE {
+    width: 200px;
+    height: 50px;
 }
