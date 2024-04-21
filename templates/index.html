@@ -33,23 +33,23 @@
 
   <!-- Student Info Modal -->
   <div class="modal fade" id="studentInfoModal" tabindex="-1" aria-labelledby="studentInfoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content px-3">
 
         <!-- Modal Container + Background Img -->
-        <div class="container-fluid modal-body my-3 rounded" style="background-image: url('static/assets/img/ui/bg/trinity.jpg'); background-size: cover;">
+        <div class="modal-body container-fluid my-3 rounded" style="background-image: url('static/assets/img/ui/bg/trinity.jpg'); background-size: cover;">
           <div class="row">
 
             <!-- Student Portrait -->
-            <div class="col-5 text-center" id="studentModalImg">
-              <img src="static/assets/img/chars/portraits/ichika.png"/>
+            <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center overflow-hidden" id="studentModalImg">
+              <img src="static/assets/img/chars/portraits/hina.png"/>
             </div>
 
             <!-- Student Info Table -->
-            <div class="col-7 justify-content-center" id="studentInfoModalTable">
+            <div class="col-12 col-lg-7 justify-content-center" id="studentInfoModalTable">
 
               <!-- Row 1 - General -->
-              <div class="row mx-1 py-1 rounded text-center text-light fw-bold justify-content-center align-items-center" id="studentInfoRow1">
+              <div class="row mx-1 py-1 overflow-y-scrollable rounded text-center text-light fw-bold justify-content-center align-items-center" id="studentInfoRow1">
                 <div class="col border-end">
                   <span class="align-middle text-light fs-3">Ichika</span><br>
                 </div>
@@ -153,6 +153,7 @@
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                    <input id="ue_current" type="number" min="1" max="10">
                   </div>
                   Target
                   <div class="d-flex">
@@ -163,10 +164,49 @@
                     <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
-                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/><br>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                    <input id="ue_target" type="number" min="1" max="10">
                   </div>
                 </div>
-                <div class="col-auto px-5 text-center">
+                <div class="col-auto px-4 text-center">
+                  <img id="studentUE" src="static/assets/img/chars/ue/ichika.png"/><br>Red Dragon
+                </div>
+              </div>
+
+              <!-- Row 4 - Rarity -->
+              <div class="row mx-1 mt-3 py-1 rounded text-light fw-bold justify-content-center align-items-center" id="studentInfoRow1">
+                <div class="col-auto border-end">
+                  <span class="p-2 bg-light rounded text-dark align-middle">
+                    <img class="studentType mb-1" src="static/assets/img/ui/gun/ar.webp"/> AR
+                  </span>
+                </div>
+                <div class="col ms-2 border-end">
+                  Current
+                  <div class="d-flex">
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                    <input id="ue_current" type="number" min="1" max="10">
+                  </div>
+                  Target
+                  <div class="d-flex">
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                    <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                    <input id="ue_target" type="number" min="1" max="10">
+                  </div>
+                </div>
+                <div class="col-auto px-4 text-center">
                   <img id="studentUE" src="static/assets/img/chars/ue/ichika.png"/><br>Red Dragon
                 </div>
               </div>

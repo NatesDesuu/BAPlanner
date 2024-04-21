@@ -91,6 +91,10 @@ body {
 input {
     width: 48px;
 }
+#studentInfoModalTable {
+    height: 500px;
+    overflow-y: scroll;
+}
 #studentEXP {
     width: 40px;
     height: 20px;
@@ -107,8 +111,6 @@ input {
 }
 #studentModalImg img {
     height: 500px;
-    object-fit: cover;
-    object-position: 25% 25%;
 }
 .studentTerrain, .studentMood {
     width: 30px;
