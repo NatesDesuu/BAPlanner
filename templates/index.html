@@ -16,15 +16,15 @@
 
   <!-- Students -->
   <div class="row px-3 rounded-bottom" id="bottomContainer">
-    <div class="container my-3 rounded text-center" id="studentsContainer">
-      {% for n in range(35): %}
-      <div class="col d-inline-block my-3" id="studentBoxContainer" data-bs-toggle="modal" data-bs-target="#studentInfoModal">
-        <div class="border rounded-top" id="studentImg"><img src="static/assets/img/char/icon/ichika.webp"/></div>
-        <div class="rounded-bottom" id="sortContainer"><p class="my-auto fw-bold">Lv. 87</p></div>
-        <div id="nameContainer"><p class="my-auto fw-bold">Ichika</p></div>
+    <div class="container my-3 pb-3 rounded text-center" id="studentsContainer">
+      {% for n in range(33): %}
+      <div class="col position-relative d-inline-block mx-2 my-3" id="studentBoxContainer" data-bs-toggle="modal" data-bs-target="#studentInfoModal">
+        <span class="position-absolute fixed-bottom w-100 z-2 rounded-bottom-3 fw-bold" id="sortContainer">Lv. 87</span>
+        <img class="d-block rounded-3" id="studentImg" src="static/assets/img/char/icon/ichika.png"/>
+        <p class="fw-bold">Ichika</p>
       </div>
       {% endfor %}
-      <div class="col btn d-inline-block my-3 align-top border rounded" id="addContainer">
+      <div class="col btn d-inline-block mx-2 my-3 align-top border rounded" id="addContainer">
         <img class="mt-2" src="static/assets/img/ui/student-add.png"/>
         <h5 class="fw-bold">Add</h5>
       </div>
