@@ -1,4 +1,18 @@
-data = {
+atk_bg = {
+    "explosive": "#920108",
+    "piercing": "#BE8905",
+    "mystic": "#236D9A",
+    "sonic": "#9745A7"
+}
+
+def_bg = {
+    "light": "#920108",
+    "heavy": "#BE8905",
+    "special": "#236D9A",
+    "elastic": "#9745A7"
+}
+
+student_data = {
     1157: {
         "name": "Ichika",
         "school": "Trinity",
@@ -17,6 +31,7 @@ data = {
         "sub": "extra-dmg",
         "cover": True,
         "weapon_type": "ar",
+        "weapon_img": 1157,
         "weapon_name": "Red Dragon",
         "gear1": "hat",
         "gear2": "hairpin",
@@ -40,6 +55,7 @@ data = {
         "sub": "mika-sub",
         "cover": True,
         "weapon_type": "smg",
+        "weapon_img": 1127,
         "weapon_name": "Quis ut Deus",
         "gear1": "hat",
         "gear2": "badge",
@@ -63,6 +79,7 @@ data = {
         "sub": "extra-dmg",
         "cover": True,
         "weapon_type": "sr",
+        "weapon_img": 1020,
         "weapon_name": "Crack Shot",
         "gear1": "hat",
         "gear2": "hairpin",
@@ -76,7 +93,7 @@ data = {
         "role": "dealer",
         "position": "middle",
         "atk_type": "explosive",
-        "def_type": "light",
+        "def_type": "special",
         "mood1": "neutral",
         "mood2": "terrible",
         "mood3": "outstanding",
@@ -86,6 +103,7 @@ data = {
         "sub": "weapon-buff",
         "cover": True,
         "weapon_type": "ar",
+        "weapon_img": 1108,
         "weapon_name": "Arius Assault Rifle",
         "gear1": "hat",
         "gear2": "hairpin",
@@ -109,6 +127,7 @@ data = {
         "sub": "stat-debuff",
         "cover": True,
         "weapon_type": "ar",
+        "weapon_img": 1055,
         "weapon_name": "Et Omnia Vanitas",
         "gear1": "gloves",
         "gear2": "hairpin",
@@ -132,9 +151,10 @@ data = {
         "sub": "weapon-dual-effect",
         "cover": False,
         "weapon_type": "mg",
+        "weapon_img": 1109,
         "weapon_name": "Mabinogion",
         "gear1": "gloves",
         "gear2": "hairpin",
         "gear3": "watch"
-    }
+    },
 }
