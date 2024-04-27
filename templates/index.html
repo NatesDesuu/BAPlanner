@@ -21,7 +21,15 @@
       <div class="col position-relative d-inline-block mx-2 my-3" id="studentBoxContainer" data-bs-toggle="modal" data-bs-target="#studentInfoModal{{ student }}">
         <span class="position-absolute fixed-bottom w-100 z-2 rounded-bottom-3 fw-bold" id="sortContainer">Lv. 87</span>
         <img class="d-block mb-1 rounded-3" id="studentImg" src="static/assets/img/char/icon/{{ student }}.png"/>
-        <p class="fw-bold" style="color: #5C6167; font-size: 15px;">{{ detail.name }}</p>
+        <p class="fw-bold" style="color: #5C6167; text-decoration: underline; text-decoration-color: #F0F0B0;
+        {% if detail.name|length > 18: %}
+          font-size: 14px;
+        {% elif detail.name|length > 14: %}
+          font-size: 15px;
+        {% else: %}
+          font-size: 17px;
+        {% endif %}
+        ">{{ detail.name }}</p>
       </div>
       {% endfor %}
       <div class="col btn d-inline-block mx-2 my-3 align-top border rounded" id="addContainer">
@@ -52,7 +60,13 @@
               <!-- Row 1 - General -->
               <div class="row mx-1 py-1 overflow-y-scrollable rounded text-center text-light fw-bold justify-content-center align-items-center" id="studentInfoRow1">
                 <div class="col border-end">
-                  <span class="align-middle text-light fs-5">{{ detail.name }}</span><br>
+                  <span class="align-middle text-light" style="
+                  {% if detail.name|length > 18: %}
+                    font-size: 17px;
+                  {% else: %}
+                    font-size: 20px;
+                  {% endif %}
+                  ">{{ detail.name }}</span><br>
                 </div>
                 <div class="col-auto">
                   <img class="mb-1" id="studentEXP" src="static/assets/img/ui/exp.png"/> Level
@@ -184,7 +198,7 @@
 
               <!-- Row 5 - Gears -->
               <div class="row mx-1 mt-3 py-2 rounded text-center text-light justify-content-center fw-bold" id="studentInfoRow1">
-                <div class="col mt-1">
+                <div class="col mt-2">
                   Current<br><br><br>Target
                 </div>
                 <div class="col mx-1 pb-1 border rounded fst-italic">
