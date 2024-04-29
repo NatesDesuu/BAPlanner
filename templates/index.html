@@ -22,10 +22,8 @@
         <span class="position-absolute fixed-bottom w-100 z-2 rounded-bottom-3 fw-bold" id="sortContainer">Lv. 87</span>
         <img class="d-block mb-1 rounded-3" id="studentImg" src="static/assets/img/char/icon/{{ student }}.png"/>
         <p class="fw-bold" style="color: #5C6167; text-decoration: underline; text-decoration-color: #F0F0B0;
-        {% if detail.name|length > 18: %}
+        {% if detail.name|length > 14: %}
           font-size: 14px;
-        {% elif detail.name|length > 14: %}
-          font-size: 15px;
         {% else: %}
           font-size: 17px;
         {% endif %}
@@ -62,7 +60,9 @@
                 <div class="col border-end">
                   <span class="align-middle text-light" style="
                   {% if detail.name|length > 18: %}
-                    font-size: 17px;
+                    font-size: 16px;
+                  {% elif detail.name|length > 15: %}
+                    font-size: 19px;
                   {% else: %}
                     font-size: 20px;
                   {% endif %}
@@ -176,7 +176,7 @@
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
-                    <input id="ue_current" type="number" min="1" max="10">
+                    <input id="ue_current" type="number" min="1" max="50">
                   </div>
                   Target
                   <div class="d-flex">
@@ -188,7 +188,7 @@
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
-                    <input id="ue_target" type="number" min="1" max="10">
+                    <input id="ue_target" type="number" min="1" max="50">
                   </div>
                 </div>
                 <div class="col text-center">
