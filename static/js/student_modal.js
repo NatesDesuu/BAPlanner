@@ -123,6 +123,5 @@ if (studentInfoModal) {
     studentModalGear1.src = 'static/assets/img/ui/gear/'+ student_details['gear1'] +'-t8.webp'
     studentModalGear2.src = 'static/assets/img/ui/gear/'+ student_details['gear2'] +'-t8.webp'
     studentModalGear3.src = 'static/assets/img/ui/gear/'+ student_details['gear3'] +'-t8.webp'
-
   })
 }
