@@ -18,8 +18,8 @@
   <div class="row px-3 rounded-bottom" id="bottomContainer">
     <div class="container my-3 pb-3 rounded text-center" id="studentsContainer">
       {% for student in students: %}
-      <div class="col position-relative d-inline-block mx-2 my-3" id="studentBoxContainer" data-bs-toggle="modal" data-bs-target="#studentInfoModal" data-bs-data='{{ student.to_dict()|tojson }}' data-bs-details='{{ student_data[student.id]|tojson }}'>
-        <span class="position-absolute fixed-bottom w-100 z-2 rounded-bottom-3 fw-bold" id="sortContainer">Lv. 87</span>
+      <div class="col position-relative d-inline-block mx-2 my-3" id="studentBoxContainer" data-bs-toggle="modal" data-bs-target="#studentInfoModal" data-bs-data='{{ student.to_dict()|tojson }}' data-bs-details='{{ student.detail.to_dict()|tojson }}'>
+        <span class="position-absolute fixed-bottom w-100 z-2 rounded-bottom-3 fw-bold" id="sortContainer">Lv. {{ student.current_level }}</span>
         <img class="d-block mb-1 rounded-3" id="studentImg" src="static/assets/img/char/icon/{{ student.id }}.png"/>
         <p class="fw-bold" style="color: #5C6167; text-decoration: underline; text-decoration-color: #F0F0B0;
         {% if student.name|length > 14: %}
