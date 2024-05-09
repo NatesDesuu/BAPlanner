@@ -31,22 +31,22 @@ footer img {
     height: 40px;
     width: 150px;
 }
-#allStudents.btn.active {
+#allStudents:checked+.btn {
     background-color: #153756;
     color: white;
 }
-#strikerStudents.btn {
+#strikerStudents:not(:checked)+.btn {
     color: red;
 }
-#strikerStudents.btn.active {
-    background-color: red;
+#strikerStudents:checked+.btn {
+    background-color: #C71C14;
     color: white;
 }
-#specialStudents.btn {
+#specialStudents:not(:checked)+.btn {
     color: blue;
 }
-#specialStudents.btn.active {
-    background-color: blue;
+#specialStudents:checked+.btn {
+    background-color: #0664E8;
     color: white;
 }
 
