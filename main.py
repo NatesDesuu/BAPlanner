@@ -1,12 +1,11 @@
-from flask import Flask, abort, render_template, redirect, url_for, flash
+from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship, DeclarativeBase, Mapped, mapped_column
-from sqlalchemy import Integer, String, Column, ForeignKey
-from data import student_data
+from sqlalchemy import Integer, String, ForeignKey
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = 'HeEhEe'
 Bootstrap5(app)
 
 
@@ -96,29 +95,29 @@ class StudentDetail(db.Model):
 
 def add_student():
     new_student = Student(
-        id=1119,
-        name="Himari",
-        detail_id=1119,
-        current_level=87,
-        current_bond=30,
+        id=1059,
+        name="Mashiro (Swimsuit)",
+        detail_id=1059,
+        current_level=85,
+        current_bond=24,
         current_star=5,
-        current_ue=2,
-        current_ue_level=40,
+        current_ue=1,
+        current_ue_level=30,
         current_ex=5,
-        current_basic=10,
-        current_enhanced=10,
+        current_basic=7,
+        current_enhanced=8,
         current_sub=10,
         current_gear1=8,
         current_gear2=8,
-        current_gear3=8,
+        current_gear3=7,
         target_level=87,
-        target_bond=100,
+        target_bond=30,
         target_star=5,
-        target_ue=3,
-        target_ue_level=50,
+        target_ue=1,
+        target_ue_level=30,
         target_ex=5,
-        target_basic=10,
-        target_enhanced=10,
+        target_basic=7,
+        target_enhanced=8,
         target_sub=10,
         target_gear1=8,
         target_gear2=8,
@@ -130,27 +129,26 @@ def add_student():
 
 def add_student_details():
     new_student_detail = StudentDetail(
-        id=1119,
-        name="Himari",
-        school="Millennium",
-        bg="millennium",
+        id=1059,
+        school="Trinity",
+        bg="beach",
         type="special",
-        role="Support",
+        role="Dealer",
         position="back",
-        atk_type="Piercing",
+        atk_type="Mystic",
         def_type="Light",
-        mood1="outstanding",
-        mood2="neutral",
+        mood1="neutral",
+        mood2="outstanding",
         mood3="terrible",
-        ex="weapon-buff",
-        basic="stat-buff",
+        ex="target",
+        basic="weapon-buff",
         enhanced="weapon-buff",
-        sub="regen-cost",
+        sub="weapon-buff",
         cover="false",
-        weapon_type="hg",
-        weapon_img=1119,
-        weapon_name="Clifftop Flower",
-        gear1="boots",
+        weapon_type="sr",
+        weapon_img=1046,
+        weapon_name="Revelation of Justice",
+        gear1="hat",
         gear2="hairpin",
         gear3="watch"
     )
@@ -160,10 +158,25 @@ def add_student_details():
 
 @app.route('/')
 def home():
-    # result = db.session.query(Student).join(Student.detail, full=True).filter(StudentDetail.type=='striker')
-    result = db.session.query(Student).join(Student.detail, full=True)
+    result = (db.session.query(Student).join(Student.detail, full=True)
+              .order_by(Student.current_level.desc(), Student.current_bond.desc()))
     all_students = result.all()
     return render_template("index.html", students=all_students)
+
+
+@app.route("/basic-filter", methods=['POST'])
+def basic_filter():
+    selected_basic_filter = request.get_data(as_text=True)
+    result = (db.session.query(Student).join(Student.detail, full=True)
+              .order_by(Student.current_level.desc()), Student.current_bond.desc())
+    if selected_basic_filter:
+        result = (db.session.query(Student).join(Student.detail, full=True)
+                  .filter(StudentDetail.type == selected_basic_filter)
+                  .order_by(Student.current_level.desc(), Student.current_bond.desc()))
+    basic_filtered_students = result.all()
+    return render_template("student-list.html", students=basic_filtered_students)
+
+
 
 
 if __name__ == "__main__":
