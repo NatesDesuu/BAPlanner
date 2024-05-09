@@ -5,12 +5,16 @@
   <!-- Filters -->
   <div class="row py-2 rounded-top" id="topContainer">
     <div class="col my-auto"><img class="studentList" src="static/assets/img/ui/student-list.png"/></div>
-    <div class="col text-end" id="filtersContainer">
-      <a href="#" class="btn btn-light active fw-bold" id="allStudents" data-bs-toggle="button" aria-current="true">All</a>
-      <a href="#" class="btn btn-light fw-bold" id="strikerStudents" data-bs-toggle="button">STRIKER</a>
-      <a href="#" class="btn btn-light fw-bold" id="specialStudents" data-bs-toggle="button">SPECIAL</a>
+    <div class="col text-end" id="displayContainer">
+      <input type="radio" class="btn-check" name="basic-filters" id="allStudents" value="" checked>
+      <label class="btn btn-light fw-bold" for="allStudents">All</label>
+      <input type="radio" class="btn-check" name="basic-filters" id="strikerStudents" value="striker">
+      <label class="btn btn-light fw-bold" for="strikerStudents">STRIKER</label>
+      <input type="radio" class="btn-check" name="basic-filters" id="specialStudents" value="special">
+      <label class="btn btn-light fw-bold" for="specialStudents">SPECIAL</label>
       <a href="#" class="btn btn-light fw-bold" data-bs-toggle="button">Lv.</a>
-      <a href="#" class="btn btn-light fw-bold" data-bs-toggle="button">☰↓</a>
+      <input type="checkbox" class="btn-check" name="order-students" id="orderStudents">
+      <label class="btn btn-light fw-bold" for="orderStudents">☰↓</label>
     </div>
   </div>
 
@@ -49,6 +53,7 @@
             <!-- Student Portrait -->
             <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center overflow-hidden" id="studentModalImg">
               <img src=""/>
+              <p></p>
             </div>
 
             <!-- Student Info Table -->
@@ -155,7 +160,7 @@
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
-                    <input id="ue_current" type="number" min="1" max="50">
+                    <input id="ue_level_current" type="number" min="1" max="50">
                   </div>
                   Target
                   <div class="d-flex">
@@ -167,7 +172,7 @@
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
                     <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
-                    <input id="ue_target" type="number" min="1" max="50">
+                    <input id="ue_level_target" type="number" min="1" max="50">
                   </div>
                 </div>
                 <div class="col text-center" id="studentModalUE">
@@ -205,8 +210,8 @@
 
         <!-- Modal Footer -->
         <div class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-primary fw-bold">Save</button>
-          <button type="button" class="btn btn-danger fw-bold">Delete</button>
+          <a class="btn btn-primary fw-bold">Save</a>
+          <a class="btn btn-danger fw-bold">Delete</a>
           <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Close</button>
         </div>
 
