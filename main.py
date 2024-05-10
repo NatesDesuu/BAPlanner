@@ -160,23 +160,66 @@ def add_student_details():
 def home():
     result = (db.session.query(Student).join(Student.detail, full=True)
               .order_by(Student.current_level.desc(), Student.current_bond.desc()))
-    all_students = result.all()
+    all_students = [student for student in result.all() if student]
     return render_template("index.html", students=all_students)
 
 
-@app.route("/basic-filter", methods=['POST'])
-def basic_filter():
-    selected_basic_filter = request.get_data(as_text=True)
-    result = (db.session.query(Student).join(Student.detail, full=True)
-              .order_by(Student.current_level.desc()), Student.current_bond.desc())
-    if selected_basic_filter:
+@app.route("/display-students", methods=['POST'])
+def display_students():
+    # Get data from JS fetch
+    display_data = request.get_json()
+    # Get sorting order first
+    if display_data['basic-order'] == "desc":
         result = (db.session.query(Student).join(Student.detail, full=True)
-                  .filter(StudentDetail.type == selected_basic_filter)
                   .order_by(Student.current_level.desc(), Student.current_bond.desc()))
-    basic_filtered_students = result.all()
-    return render_template("student-list.html", students=basic_filtered_students)
+    else:
+        result = (db.session.query(Student).join(Student.detail, full=True)
+                  .order_by(Student.current_level.asc(), Student.current_bond.asc()))
+    # If the basic filter selected was not 'All'
+    if display_data['basic-filter']:
+        result = result.filter(StudentDetail.type == display_data['basic-filter'])
+    # Return ordered list of students
+    all_students = [student for student in result.all() if student]
+    return render_template("partials/student-list.html", students=all_students)
 
 
+@app.route('/update-student', methods=['POST'])
+def update_student():
+    # Get data from JS fetch
+    student_data = request.get_json()
+    # Get the id of the student to be updated
+    student = db.get_or_404(Student, student_data['student_id'])
+    student.current_level = student_data['current_level']
+    student.current_bond = student_data['current_bond']
+    student.current_ue_level = student_data['current_ue_level']
+    student.current_ex = student_data['current_ex']
+    student.current_basic = student_data['current_basic']
+    student.current_enhanced = student_data['current_enhanced']
+    student.current_sub = student_data['current_sub']
+    student.current_gear1 = student_data['current_gear1']
+    student.current_gear2 = student_data['current_gear2']
+    student.current_gear3 = student_data['current_gear3']
+    student.target_level = student_data['target_level']
+    student.target_bond = student_data['target_bond']
+    student.target_ue_level = student_data['target_ue_level']
+    student.target_ex = student_data['target_ex']
+    student.target_basic = student_data['target_basic']
+    student.target_enhanced = student_data['target_enhanced']
+    student.target_sub = student_data['target_sub']
+    student.target_gear1 = student_data['target_gear1']
+    student.target_gear2 = student_data['target_gear2']
+    student.target_gear3 = student_data['target_gear3']
+    db.session.commit()
+
+
+@app.route('/delete-student', methods=['POST'])
+def delete_student():
+    # Get data from JS fetch
+    student_id = request.get_data(as_text=True)
+    # Get the id of the student to be deleted
+    student_to_delete = db.get_or_404(Student, student_id)
+    db.session.delete(student_to_delete)
+    db.session.commit()
 
 
 if __name__ == "__main__":

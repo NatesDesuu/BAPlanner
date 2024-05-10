@@ -13,31 +13,15 @@
       <input type="radio" class="btn-check" name="basic-filters" id="specialStudents" value="special">
       <label class="btn btn-light fw-bold" for="specialStudents">SPECIAL</label>
       <a href="#" class="btn btn-light fw-bold" data-bs-toggle="button">Lv.</a>
-      <input type="checkbox" class="btn-check" name="order-students" id="orderStudents">
-      <label class="btn btn-light fw-bold" for="orderStudents">☰↓</label>
+      <input type="checkbox" class="btn-check" name="order-students" id="orderStudents" onclick="displayStudents();">
+      <label class="btn btn-light fw-bold" id="orderStudentsLabel" for="orderStudents">☰↓</label>
     </div>
   </div>
 
   <!-- Students -->
   <div class="row px-3 rounded-bottom" id="bottomContainer">
     <div class="container my-3 pb-3 rounded text-center" id="studentsContainer">
-      {% for student in students: %}
-      <div class="col position-relative d-inline-block mx-2 my-3" id="studentBoxContainer" data-bs-toggle="modal" data-bs-target="#studentInfoModal" data-bs-data='{{ student.to_dict()|tojson }}' data-bs-details='{{ student.detail.to_dict()|tojson }}'>
-        <span class="position-absolute fixed-bottom w-100 z-2 rounded-bottom-3 fw-bold" id="sortContainer">Lv. {{ student.current_level }}</span>
-        <img class="d-block mb-1 rounded-3" id="studentImg" src="static/assets/img/char/icon/{{ student.id }}.png"/>
-        <p class="fw-bold" style="color: #5C6167; text-decoration: underline; text-decoration-color: #F0F0B0;
-        {% if student.name|length > 14: %}
-          font-size: 14px;
-        {% else: %}
-          font-size: 17px;
-        {% endif %}
-        ">{{ student.name }}</p>
-      </div>
-      {% endfor %}
-      <div class="col btn d-inline-block mx-2 my-3 align-top border rounded" id="addContainer">
-        <img class="mt-2" src="static/assets/img/ui/student-add.png"/>
-        <h5 class="fw-bold">Add</h5>
-      </div>
+      {% include "partials/student-list.html" %}
     </div>
   </div>
 
@@ -210,8 +194,9 @@
 
         <!-- Modal Footer -->
         <div class="modal-footer justify-content-center">
-          <a class="btn btn-primary fw-bold">Save</a>
-          <a class="btn btn-danger fw-bold">Delete</a>
+          <input id="studentModalID" type="hidden" value=""/>
+          <button type="button" class="btn btn-primary fw-bold" onclick="updateStudent();">Save</button>
+          <button type="button" class="btn btn-danger fw-bold" onclick="deleteStudent();">Delete</button>
           <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Close</button>
         </div>
 
