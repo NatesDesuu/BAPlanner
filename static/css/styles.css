@@ -49,6 +49,9 @@ footer img {
     background-color: #0664E8;
     color: white;
 }
+#orderStudents:checked+.btn {
+    background-color: #F8F9FA;
+}
 
 /* For students */
 
