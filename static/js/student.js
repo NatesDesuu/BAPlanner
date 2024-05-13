@@ -1,6 +1,7 @@
 // Initialize containers
 const studentsList = document.getElementById("studentsContainer")
 const studentInfoModal = document.getElementById('studentInfoModal')
+const studentAddModal = document.getElementById('studentAddModal')
 
 // Initialize modal body
 const modalBody = studentInfoModal.querySelector('.modal-body')
@@ -72,7 +73,7 @@ if (studentInfoModal) {
 
     // Update table - row 1
     studentModalID.value = student_data['id']
-    studentModalName.textContent = student_data['name']
+    studentModalName.textContent = student_details['student_name']
     if (student_data['name'].length > 18) {
         studentModalName.style.fontSize = '16px';
     } else if (student_data['name'].length > 15) {
@@ -256,4 +257,16 @@ function deleteStudent() {
       body: studentModalID.value
     })
     displayStudents();
+}
+
+function addStudent() {
+    fetch("/add-student", {
+      method: "POST"
+    })
+    .then(response => {
+      return response.text();
+    })
+    .then(html => {
+      studentAddModal.innerHTML = html
+    })
 }

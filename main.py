@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship, DeclarativeBase, Mapped, mapped_column
-from sqlalchemy import Integer, String, ForeignKey
+from sqlalchemy import Integer, String, ForeignKey, select
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'HeEhEe'
@@ -59,6 +59,8 @@ class Student(db.Model):
 class StudentDetail(db.Model):
     __tablename__ = "student_details"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    student_name: Mapped[str] = mapped_column(String, nullable=False)
+    start_rarity: Mapped[str] = mapped_column(Integer, nullable=False)
     school: Mapped[str] = mapped_column(String, nullable=False)
     bg: Mapped[str] = mapped_column(String, nullable=False)
     type: Mapped[str] = mapped_column(String, nullable=False)
@@ -95,7 +97,7 @@ class StudentDetail(db.Model):
 
 def add_student():
     new_student = Student(
-        id=1059,
+        id=1109,
         name="Mashiro (Swimsuit)",
         detail_id=1059,
         current_level=85,
@@ -129,26 +131,28 @@ def add_student():
 
 def add_student_details():
     new_student_detail = StudentDetail(
-        id=1059,
-        school="Trinity",
-        bg="beach",
-        type="special",
+        id=1164,
+        student_name="Kikyou",
+        start_rarity=3,
+        school="Hyakkiyako",
+        bg="hyakki",
+        type="striker",
         role="Dealer",
         position="back",
-        atk_type="Mystic",
-        def_type="Light",
-        mood1="neutral",
-        mood2="outstanding",
+        atk_type="Sonic",
+        def_type="Heavy",
+        mood1="outstanding",
+        mood2="neutral",
         mood3="terrible",
-        ex="target",
-        basic="weapon-buff",
+        ex="cross",
+        basic="bullet-buff",
         enhanced="weapon-buff",
-        sub="weapon-buff",
-        cover="false",
+        sub="kikyou-sub",
+        cover="true",
         weapon_type="sr",
-        weapon_img=1046,
-        weapon_name="Revelation of Justice",
-        gear1="hat",
+        weapon_img=1164,
+        weapon_name="Hyakkaryouran Rifle - Azure Wisdom",
+        gear1="gloves",
         gear2="hairpin",
         gear3="watch"
     )
@@ -181,6 +185,18 @@ def display_students():
     # Return ordered list of students
     all_students = [student for student in result.all() if student]
     return render_template("partials/student-list.html", students=all_students)
+
+
+@app.route('/add-student', methods=['POST'])
+def add_student():
+    # Get list of owned students by id
+    students_owned = db.session.execute(select(Student.id).select_from(Student)).scalars()
+    # Get list of unowned students (id, name, starting rarity)
+    students_not_owned = db.session.execute(select(StudentDetail.id, StudentDetail.student_name,
+                                                   StudentDetail.start_rarity).select_from(StudentDetail)
+                                            .where(StudentDetail.id.not_in(students_owned))
+                                            .order_by(StudentDetail.student_name)).all()
+    return render_template("partials/modals/student-add.html", students=students_not_owned)
 
 
 @app.route('/update-student', methods=['POST'])
