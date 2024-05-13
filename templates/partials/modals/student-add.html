@@ -1,0 +1,24 @@
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+    <div class="modal-content px-3">
+
+        <div class="modal-body container-fluid my-3 rounded">
+            {% for student in students: %}
+              <div class="col position-relative d-inline-block mx-2 my-3" id="studentAddBoxContainer">
+                <span class="position-absolute fixed-bottom w-100 z-2 rounded-bottom-3 fw-bold text-center align-text-middle" id="nameAddContainer" style="
+                {% if student[1]|length > 14: %}
+                  font-size: 11px;
+                {% else: %}
+                  font-size: 13px;
+                {% endif %}">{{ student[1] }}</span>
+                <img class="d-block mb-1 rounded-3" id="studentImg" src="static/assets/img/char/icon/{{ student[0] }}.png"/>
+              </div>
+            {% endfor %}
+        </div>
+
+        <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-primary fw-bold">Add</button>
+            <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Cancel</button>
+        </div>
+
+    </div>
+</div>

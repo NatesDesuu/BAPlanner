@@ -1,0 +1,177 @@
+<div class="modal fade" id="studentInfoModal" tabindex="-1" aria-labelledby="studentInfoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content px-3">
+
+      <!-- Modal Container + Background Img -->
+      <div class="modal-body container-fluid my-3 rounded" style="background-size: cover;">
+        <div class="row">
+
+          <!-- Student Portrait -->
+          <div class="col-12 col-lg-5 d-flex align-items-center justify-content-center overflow-hidden" id="studentModalImg">
+            <img src=""/>
+            <p></p>
+          </div>
+
+          <!-- Student Info Table -->
+          <div class="col-12 col-lg-7 justify-content-center" id="studentInfoModalTable">
+
+            <!-- Row 1 - General -->
+            <div class="row mx-1 py-1 overflow-y-scrollable rounded text-center text-light fw-bold justify-content-center align-items-center" id="studentInfoRow1">
+              <div class="col border-end">
+                <span class="align-middle text-light" id="studentModalName"></span><br>
+              </div>
+              <div class="col-auto">
+                <img class="mb-1" id="studentEXP" src="static/assets/img/ui/exp.png"/> Level
+              </div>
+              <div class="col-auto border-end">
+                Current <input id="level_current" type="number" min="1" max="90"><br>
+                Target <input id="level_target" type="number" min="1" max="90">
+              </div>
+              <div class="col-auto">
+                <img class="mb-1" id="studentBond" src="static/assets/img/ui/bond.png"/> Bond
+              </div>
+              <div class="col-auto">
+                Current <input id="bond_current" type="number" min="1" max="100"><br>
+                Target <input id="bond_target" type="number" min="1" max="100">
+              </div>
+            </div>
+
+            <!-- Row 2 - Types -->
+            <div class="row mx-1 mt-3 py-1 rounded text-center fw-bold justify-content-center align-items-center" id="studentInfoRow2">
+              <div class="col-auto border-end">
+                <span class="px-3 py-1 bg-light rounded align-middle" id="studentModalType"></span>
+              </div>
+              <div class="col-auto border-end">
+                <div class="px-2 bg-light rounded align-middle" id="studentModalRole">
+                  <img class="studentType mb-1" src=""/>
+                  <span></span>
+                </div>
+                <span class="px-3 align-middle rounded" id="studentModalPosition" style="background-color: #2B4663; color: white;"></span>
+              </div>
+              <div class="col-auto border-end">
+                <img class="studentType" src="static/assets/img/ui/atk-type.webp"/>
+                <span class="px-3 align-middle rounded" id="studentModalAtkType" style="color: white;"></span><br>
+                <img class="studentType" src="static/assets/img/ui/def-type.webp"/>
+                <span class="px-3 align-middle rounded" id="studentModalDefType" style="color: white;"></span>
+              </div>
+              <div class="col-auto border-end">
+                <img class="studentTerrain" src="static/assets/img/ui/terrain/city.webp"/><br>
+                <img class="studentMood" id="studentModalMood1" src=""/>
+              </div>
+              <div class="col-auto border-end">
+                <img class="studentTerrain" src="static/assets/img/ui/terrain/desert.webp"/><br>
+                <img class="studentMood" id="studentModalMood2" src=""/>
+              </div>
+              <div class="col-auto">
+                <img class="studentTerrain" src="static/assets/img/ui/terrain/indoor.webp"/><br>
+                <img class="studentMood" id="studentModalMood3" src=""/>
+              </div>
+            </div>
+
+            <!-- Row 3 - Skills -->
+            <div class="row mx-1 mt-3 py-2 rounded text-center text-light justify-content-center fw-bold" id="studentInfoRow1">
+              <div class="col">
+                <br>Current<br><br><br>Target
+              </div>
+              <div class="col mx-1 pb-1 border rounded fst-italic" id="studentModalEx">
+                EX Skill<br>
+                <input id="ex_current" type="number" min="1" max="5"><br>
+                <img class="my-1 studentSkill" src=""/><br>
+                <input id="ex_target" type="number" min="1" max="5">
+              </div>
+              <div class="col mx-1 pb-1 border rounded fst-italic" id="studentModalBasic">
+                <span style="font-size: 15px;">Basic Skill</span><br>
+                <input id="basic_current" type="number" min="1" max="10"><br>
+                <img class="my-1 studentSkill" src=""/><br>
+                <input id="basic_target" type="number" min="1" max="10">
+              </div>
+              <div class="col mx-1 pb-1 border rounded fst-italic" id="studentModalEnhanced">
+                <span style="font-size: 11px;">Enhanced Skill</span><br>
+                <input id="enhanced_current" type="number" min="1" max="10"><br>
+                <img class="my-1 studentSkill" src=""/><br>
+                <input id="enhanced_target" type="number" min="1" max="10">
+              </div>
+              <div class="col mx-1 pb-1 border rounded fst-italic" id="studentModalSub">
+                Sub Skill<br>
+                <input id="sub_current" type="number" min="1" max="10"><br>
+                <img class="my-1 studentSkill" src=""/><br>
+                <input id="sub_target" type="number" min="1" max="10">
+              </div>
+            </div>
+
+            <!-- Row 4 - Rarity -->
+            <div class="row mx-1 mt-3 py-2 rounded text-light fw-bold justify-content-center align-items-center" id="studentInfoRow2">
+              <div class="col-auto ms-3 p-2 bg-light rounded border-end" id="studentModalWeaponType">
+                <img class="studentType mb-1" src="static/assets/img/ui/cover.webp"/>
+                <span class="text-dark align-middle"></span>
+              </div>
+              <div class="col ms-1 border-end">
+                Current
+                <div class="d-flex">
+                  <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                  <input id="ue_level_current" type="number" min="1" max="50">
+                </div>
+                Target
+                <div class="d-flex">
+                  <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                  <img class="studentRarity" src="static/assets/img/ui/star-ue.webp"/>
+                  <input id="ue_level_target" type="number" min="1" max="50">
+                </div>
+              </div>
+              <div class="col text-center" id="studentModalUE">
+                <img id="studentUE" src=""/><br>
+                <span></span>
+              </div>
+            </div>
+
+            <!-- Row 5 - Gears -->
+            <div class="row mx-1 mt-3 py-2 rounded text-center text-light justify-content-center fw-bold" id="studentInfoRow1">
+            <div class="col mt-2">
+              Current<br><br><br>Target
+            </div>
+            <div class="col mx-1 pb-1 border rounded fst-italic">
+              <input class="mt-1" id="gear1_current" type="number" min="1" max="9"><br>
+              <img class="my-1 studentGear" id="studentModalGear1" src=""/><br>
+              <input id="gear1_target" type="number" min="1" max="9">
+            </div>
+            <div class="col mx-1 pb-1 border rounded fst-italic">
+              <input class="mt-1" id="gear2_current" type="number" min="1" max="9"><br>
+              <img class="my-1 studentGear" id="studentModalGear2" src=""/><br>
+              <input id="gear2_target" type="number" min="1" max="9">
+            </div>
+            <div class="col mx-1 pb-1 border rounded fst-italic">
+              <input class="mt-1" id="gear3_current" type="number" min="1" max="8"><br>
+              <img class="my-1 studentGear" id="studentModalGear3" src=""/><br>
+              <input id="gear3_target" type="number" min="1" max="8">
+            </div>
+          </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer justify-content-center">
+        <input id="studentModalID" type="hidden" value=""/>
+        <button type="button" class="btn btn-primary fw-bold" onclick="updateStudent();">Save</button>
+        <button type="button" class="btn btn-danger fw-bold" onclick="deleteStudent();">Delete</button>
+        <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
