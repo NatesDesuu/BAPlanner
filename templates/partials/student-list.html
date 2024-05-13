@@ -11,7 +11,7 @@
     ">{{ student.name }}</p>
   </div>
 {% endfor %}
-<div class="col btn d-inline-block mx-2 my-3 align-top border rounded" id="addContainer">
+<div class="col btn d-inline-block mx-2 my-3 align-top border rounded" id="addContainer" onclick="addStudent();" data-bs-toggle="modal" data-bs-target="#studentAddModal">
   <img class="mt-2" src="static/assets/img/ui/student-add.png"/>
   <h5 class="fw-bold">Add</h5>
 </div>
