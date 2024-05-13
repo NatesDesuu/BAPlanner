@@ -1,4 +1,4 @@
-/* For base */
+/* Base */
 
 .navbar-brand img {
     width: 30px;
@@ -22,7 +22,7 @@ footer img {
     margin-right: 10px;
 }
 
-/* For filters */
+/* Filters */
 
 #topContainer {
     background-color: #8ABDD5;
@@ -53,7 +53,7 @@ footer img {
     background-color: #F8F9FA;
 }
 
-/* For students */
+/* Students List */
 
 #bottomContainer {
     background-color: #62A2C0;
@@ -97,7 +97,7 @@ footer img {
     width: 100px;
 }
 
-/* For student info */
+/* Student Info Modal */
 
 input {
     width: 48px;
@@ -145,4 +145,18 @@ input {
 .studentGear {
     width: 50px;
     height: 40px;
+}
+
+/* Student Add Modal */
+
+#studentAddBoxContainer {
+    background-color: white;
+    cursor: pointer;
+    height: 130px;
+    width: 110px;
+}
+#nameAddContainer {
+    background-color: rgba(30, 30, 85, 0.6);
+    height: 20px;
+    color: white;
 }
