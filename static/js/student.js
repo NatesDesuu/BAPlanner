@@ -230,8 +230,6 @@ function displayUnownedStudents() {
     })
 }
 
-// Add student (checkbox)
-
 // Add student
 function addStudent() {
     let selectedStudents = document.querySelectorAll('input[name="students-to-add"]:checked');

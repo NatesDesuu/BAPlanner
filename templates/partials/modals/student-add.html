@@ -5,12 +5,14 @@
             <img class="studentAdd" src="static/assets/img/ui/student-add.png"/>
         </div>
 
-        <div class="modal-body container-fluid text-center" id="studentAddContainer">
+        <div class="modal-body container-fluid" id="studentAddContainer">
             {% for student in students: %}
-                <input type="checkbox" class="btn-check" name="students-to-add" id="student_{{ student[0] }}" value="{{ student[0] }}, {{ student[1] }}, {{ student[2] }}" />
                 <label for="student_{{ student[0] }}">
                   <div class="col position-relative d-inline-block mx-2" id="studentAddBoxContainer">
-                    <span class="position-absolute fixed-bottom w-100 z-2 rounded-bottom-3 fw-bold" id="nameAddContainer" style="
+                    <div class="position-absolute fixed-top">
+                        <input type="checkbox" class="w-auto ms-2" name="students-to-add" id="student_{{ student[0] }}" value="{{ student[0] }}, {{ student[1] }}, {{ student[2] }}" style="transform: scale(1.3);"/>
+                    </div>
+                    <span class="position-absolute fixed-bottom w-100 z-2 rounded-bottom-3 fw-bold text-center" id="nameAddContainer" style="
                     {% if student[1]|length > 14: %}
                       font-size: 10px;
                     {% else: %}
