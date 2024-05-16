@@ -151,12 +151,25 @@ input {
 
 #studentAddBoxContainer {
     background-color: white;
+    height: 123px;
+    width: 108px;
     cursor: pointer;
-    height: 130px;
-    width: 110px;
 }
 #nameAddContainer {
     background-color: rgba(30, 30, 85, 0.6);
     height: 20px;
     color: white;
+}
+.studentAdd{
+    height: 35px;
+    width: 135px;
+}
+#studentAddContainer {
+    background: repeating-linear-gradient(
+      0deg,
+      #DEE7E8,
+      white 1px,
+      white 25px,
+      white 1px
+    );
 }
