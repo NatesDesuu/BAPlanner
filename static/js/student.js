@@ -94,6 +94,9 @@ if (studentInfoModal) {
         studentModalType.style.color = 'blue';
     }
     studentModalRole.textContent = student_details['role']
+    if (student_details['role'] == "Tactical") {
+        studentModalRole.textContent = 'T.S.';
+    }
     studentModalRoleImg.src = 'static/assets/img/ui/role/' + student_details['role'].toLowerCase() + '.webp'
     studentModalPosition.textContent = student_details['position'].toUpperCase()
     studentModalAtkType.textContent = student_details['atk_type']
@@ -214,6 +217,39 @@ $(function () {
     });
 });
 
+// Show add student modal
+function displayUnownedStudents() {
+    fetch("/display-unowned-students", {
+      method: "POST"
+    })
+    .then(response => {
+      return response.text();
+    })
+    .then(html => {
+      studentAddModal.innerHTML = html
+    })
+}
+
+// Add student (checkbox)
+
+// Add student
+function addStudent() {
+    let selectedStudents = document.querySelectorAll('input[name="students-to-add"]:checked');
+    let selectedStudentsIDs = [];
+    for (var i=0; i<selectedStudents.length; i++) {
+        selectedStudentsIDs.push(selectedStudents[i].value);
+    }
+    fetch("/add-student", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(selectedStudentsIDs)
+    })
+    setTimeout(function () {
+        $("#studentAddModal").modal("hide");
+        displayStudents();
+    }, 500);
+}
+
 // Update student data
 function updateStudent() {
     $("#studentInfoModal").modal("hide");
@@ -245,7 +281,9 @@ function updateStudent() {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(studentData)
     })
-    displayStudents();
+    setTimeout(function () {
+        displayStudents();
+    }, 500);
 }
 
 // Delete student
@@ -256,17 +294,12 @@ function deleteStudent() {
       type: "text/plain",
       body: studentModalID.value
     })
-    displayStudents();
+    setTimeout(function () {
+        displayStudents();
+    }, 500);
 }
 
-function addStudent() {
-    fetch("/add-student", {
-      method: "POST"
-    })
-    .then(response => {
-      return response.text();
-    })
-    .then(html => {
-      studentAddModal.innerHTML = html
-    })
-}
+
+
+
+

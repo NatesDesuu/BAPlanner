@@ -60,7 +60,7 @@ class StudentDetail(db.Model):
     __tablename__ = "student_details"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     student_name: Mapped[str] = mapped_column(String, nullable=False)
-    start_rarity: Mapped[str] = mapped_column(Integer, nullable=False)
+    rarity: Mapped[str] = mapped_column(Integer, nullable=False)
     school: Mapped[str] = mapped_column(String, nullable=False)
     bg: Mapped[str] = mapped_column(String, nullable=False)
     type: Mapped[str] = mapped_column(String, nullable=False)
@@ -95,35 +95,35 @@ class StudentDetail(db.Model):
 #     db.create_all()
 
 
-def add_student():
+def add_student_data(student_id, student_name, student_rarity):
     new_student = Student(
-        id=1109,
-        name="Mashiro (Swimsuit)",
-        detail_id=1059,
-        current_level=85,
-        current_bond=24,
-        current_star=5,
-        current_ue=1,
-        current_ue_level=30,
-        current_ex=5,
-        current_basic=7,
-        current_enhanced=8,
-        current_sub=10,
-        current_gear1=8,
-        current_gear2=8,
-        current_gear3=7,
-        target_level=87,
-        target_bond=30,
-        target_star=5,
-        target_ue=1,
-        target_ue_level=30,
-        target_ex=5,
-        target_basic=7,
-        target_enhanced=8,
-        target_sub=10,
-        target_gear1=8,
-        target_gear2=8,
-        target_gear3=8
+        id=student_id,
+        name=student_name,
+        detail_id=student_id,
+        current_level=1,
+        current_bond=1,
+        current_star=student_rarity,
+        current_ue=0,
+        current_ue_level=0,
+        current_ex=1,
+        current_basic=1,
+        current_enhanced=0,
+        current_sub=0,
+        current_gear1=0,
+        current_gear2=0,
+        current_gear3=0,
+        target_level=1,
+        target_bond=1,
+        target_star=student_rarity,
+        target_ue=0,
+        target_ue_level=0,
+        target_ex=1,
+        target_basic=1,
+        target_enhanced=0,
+        target_sub=0,
+        target_gear1=0,
+        target_gear2=0,
+        target_gear3=0
     )
     db.session.add(new_student)
     db.session.commit()
@@ -133,7 +133,7 @@ def add_student_details():
     new_student_detail = StudentDetail(
         id=1164,
         student_name="Kikyou",
-        start_rarity=3,
+        rarity=3,
         school="Hyakkiyako",
         bg="hyakki",
         type="striker",
@@ -187,16 +187,25 @@ def display_students():
     return render_template("partials/student-list.html", students=all_students)
 
 
-@app.route('/add-student', methods=['POST'])
-def add_student():
+@app.route('/display-unowned-students', methods=['POST'])
+def display_unowned_students():
     # Get list of owned students by id
     students_owned = db.session.execute(select(Student.id).select_from(Student)).scalars()
     # Get list of unowned students (id, name, starting rarity)
-    students_not_owned = db.session.execute(select(StudentDetail.id, StudentDetail.student_name,
-                                                   StudentDetail.start_rarity).select_from(StudentDetail)
-                                            .where(StudentDetail.id.not_in(students_owned))
+    students_not_owned = db.session.execute(select(StudentDetail.id, StudentDetail.student_name, StudentDetail.rarity)
+                                            .select_from(StudentDetail).where(StudentDetail.id.not_in(students_owned))
                                             .order_by(StudentDetail.student_name)).all()
     return render_template("partials/modals/student-add.html", students=students_not_owned)
+
+
+@app.route('/add-student', methods=['POST'])
+def add_student():
+    # Get data from JS fetch
+    students = request.get_json()
+    # Add students
+    for student in students:
+        add_student_data(student.split(", ")[0], student.split(", ")[1], student.split(", ")[2])
+    return '', 204
 
 
 @app.route('/update-student', methods=['POST'])
@@ -226,6 +235,7 @@ def update_student():
     student.target_gear2 = student_data['target_gear2']
     student.target_gear3 = student_data['target_gear3']
     db.session.commit()
+    return '', 204
 
 
 @app.route('/delete-student', methods=['POST'])
@@ -236,6 +246,7 @@ def delete_student():
     student_to_delete = db.get_or_404(Student, student_id)
     db.session.delete(student_to_delete)
     db.session.commit()
+    return '', 204
 
 
 if __name__ == "__main__":

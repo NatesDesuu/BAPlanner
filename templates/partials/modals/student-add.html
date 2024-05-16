@@ -1,22 +1,29 @@
 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-    <div class="modal-content px-3">
+    <div class="modal-content">
 
-        <div class="modal-body container-fluid my-3 rounded">
+        <div class="modal-header" style="background-color: #62A2C0;">
+            <img class="studentAdd" src="static/assets/img/ui/student-add.png"/>
+        </div>
+
+        <div class="modal-body container-fluid text-center" id="studentAddContainer">
             {% for student in students: %}
-              <div class="col position-relative d-inline-block mx-2 my-3" id="studentAddBoxContainer">
-                <span class="position-absolute fixed-bottom w-100 z-2 rounded-bottom-3 fw-bold text-center align-text-middle" id="nameAddContainer" style="
-                {% if student[1]|length > 14: %}
-                  font-size: 11px;
-                {% else: %}
-                  font-size: 13px;
-                {% endif %}">{{ student[1] }}</span>
-                <img class="d-block mb-1 rounded-3" id="studentImg" src="static/assets/img/char/icon/{{ student[0] }}.png"/>
-              </div>
+                <input type="checkbox" class="btn-check" name="students-to-add" id="student_{{ student[0] }}" value="{{ student[0] }}, {{ student[1] }}, {{ student[2] }}" />
+                <label for="student_{{ student[0] }}">
+                  <div class="col position-relative d-inline-block mx-2" id="studentAddBoxContainer">
+                    <span class="position-absolute fixed-bottom w-100 z-2 rounded-bottom-3 fw-bold" id="nameAddContainer" style="
+                    {% if student[1]|length > 14: %}
+                      font-size: 10px;
+                    {% else: %}
+                      font-size: 12px;
+                    {% endif %}">{{ student[1] }}</span>
+                    <img class="d-block mb-1 rounded-3" id="studentImg" src="static/assets/img/char/icon/{{ student[0] }}.png"/>
+                  </div>
+                </label>
             {% endfor %}
         </div>
 
         <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-primary fw-bold">Add</button>
+            <button type="button" class="btn btn-primary fw-bold" onclick="addStudent();">Add</button>
             <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Cancel</button>
         </div>
 
