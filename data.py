@@ -1,3 +1,4 @@
+
 student_data = {
     1157: {
         "name": "Ichika",
@@ -1579,9 +1580,9 @@ student_data = {
         "weapon_type": "smg",
         "weapon_img": 1090,
         "weapon_name": "Balalaika",
-        "gear1": "gloves",
-        "gear2": "hairpin",
-        "gear3": "watch"
+        "gear1": "boots",
+        "gear2": "badge",
+        "gear3": "charm"
     },
     1002: {
         "name": "Akane",
@@ -1656,10 +1657,10 @@ student_data = {
         "gear3": "watch"
     },
     1152: {
-        "name": "Mimori",
+        "name": "Mimori (Swimsuit)",
         "school": "Hyakkiyako",
         "bg": "beach-shop",
-        "type": "striker",
+        "type": "special",
         "role": "Support",
         "position": "back",
         "atk_type": "Mystic",
